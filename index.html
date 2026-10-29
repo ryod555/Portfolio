@@ -2,117 +2,782 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <style>
-      html {
-        height: 500vh;
-      }
-      body {
-        margin: 0;
-        padding: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: black;
-      }
-      canvas {
-        opacity: 0;
-        position: fixed;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-      }
-      .container {
-        text-align: center;
-        flex-direction: column;
-        stroke: black;
-        position: absolute;
-        display: flex;
-        top: 205%;
-        height: 300vh;
-        width: 100vh;
-        padding: 100px;
-        -webkit-filter: drop-shadow(5px 5px 5px #222);
-        filter: drop-shadow(5px 5px 5px #222);
-        background-color: aliceblue;
-      }
-
-      #wing {
-        position: absolute;
-        width: 1505px;
-        top: 3000px;
-        z-index: 300;
-        box-shadow: 1px;
-        -webkit-filter: drop-shadow(5px 5px 5px #222);
-        filter: drop-shadow(5px 5px 5px #222);
-      }
-      #background {
-        position: fixed;
-        z-index: -1;
-        top: -50px;
-        width: 183.5vh;
-      }
-      
-
-      #hermes {
-        font-family: Georgia;
-        background-color: yellow;
-        font-size: xx-large;
-        opacity: 0;
-        position: fixed  ;
-        left: 50%;
-        top: 48%;
-        transform: translate(-50%, -50%);
-      }
-    </style>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Ryan (Ryo) Dang</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./presentation.css" />
+    <script>
+      if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        document.documentElement.classList.add("motion");
+      }
+    </script>
   </head>
   <body>
-    <canvas></canvas>
-    <p id="hermes">HERMES ESTATE</p>
-    <div class="container"> 
-      <h1>MUSIC</h1>
-      <h2>The Word Became Flesh
-        1In the beginning was the Word, and the Word was with God, and the Word was God. 2He was with God in the beginning. 3Through him all things were made; without him nothing was made that has been made. 4In him was life, and that life was the light of all mankind. 5The light shines in the darkness, and the darkness has not overcome it.
-        6There was a man sent from God whose name was John. 7He came as a witness to testify concerning that light, so that through him all might believe. 8He himself was not the light; he came only as a witness to the light.
-        9The true light that gives light to everyone was coming into the world. 10He was in the world, and though the world was made through him, the world did not recognize him. 11He came to that which was his own, but his own did not receive him. 12Yet to all who did receive him, to those who believed in his name, he gave the right to become children of God— 13children born not of natural descent, nor of human decision or a husband’s will, but born of God.
-        14The Word became flesh and made his dwelling among us. We have seen his glory, the glory of the one and only Son, who came from the Father, full of grace and truth.
-        15(John testified concerning him. He cried out, saying, “This is the one I spoke about when I said, ‘He who comes after me has surpassed me because he was before me.’ ”) 16Out of his fullness we have all received grace in place of grace already given. 17For the law was given through Moses; grace and truth came through Jesus Christ. 18No one has ever seen God, but the one and only Son, who is himself God and is in closest relationship with the Father, has made him known.
-        John the Baptist Denies Being the Messiah
-        19Now this was John’s testimony when the Jewish leaders in Jerusalem sent priests and Levites to ask him who he was. 20He did not fail to confess, but confessed freely, “I am not the Messiah.”
-        21They asked him, “Then who are you? Are you Elijah?”
-        He said, “I am not"
-        “Are you the Prophet?”
-        He answered, “No.”
-        22Finally they said, “Who are you? Give us an answer to take back to those who sent us. What do you say about yourself?”
-        23John replied in the words of Isaiah the prophet, “I am the voice of one calling in the wilderness, ‘Make straight the way for the Lord.’ ”
-        24Now the Pharisees who had been sent 25questioned him, “Why then do you baptize if you are not the Messiah, nor Elijah, nor the Prophet?”
-        26“I baptize with water,” John replied, “but among you stands one you do not know. 27He is the one who comes after me, the straps of whose sandals I am not worthy to untie.”
-        28This all happened at Bethany on the other side of the Jordan, where John was baptizing.
-        John Testifies About Jesus
-        29The next day John saw Jesus coming toward him and said, “Look, the Lamb of God, who takes away the sin of the world! 30This is the one I meant when I said, ‘A man who comes after me has surpassed me because he was before me.’ 31I myself did not know him, but the reason I came baptizing with water was that he might be revealed to Israel.”
-        32Then John gave this testimony: “I saw the Spirit come down from heaven as a dove and remain on him. 33And I myself did not know him, but the one who sent me to baptize with water told me, ‘The man on whom you see the Spirit come down and remain is the one who will baptize with the Holy Spirit.’ 34I have seen and I testify that this is God’s Chosen One.”
-        John’s Disciples Follow Jesus
-        35The next day John was there again with two of his disciples. 36When he saw Jesus passing by, he said, “Look, the Lamb of God!”
-        37When the two disciples heard him say this, they followed Jesus. 38Turning around, Jesus saw them following and asked, “What do you want?”
-        They said, “Rabbi” (which means “Teacher”), “where are you staying?”
-        39 “Come,”he replied, “and you will see.”
-        So they went and saw where he was staying, and they spent that day with him. It was about four in the afternoon.
-        40Andrew, Simon Peter’s brother, was one of the two who heard what John had said and who had followed Jesus. 41The first thing Andrew did was to find his brother Simon and tell him, “We have found the Messiah” (that is, the Christ). 42And he brought him to Jesus.
-        Jesus looked at him and said, “You are Simon son of John. You will be called Cephas”(which, when translated, is Peter).
-        Jesus Calls Philip and Nathanael
-        43The next day Jesus decided to leave for Galilee. Finding Philip, he said to him, “Follow me.”
-        44Philip, like Andrew and Peter, was from the town of Bethsaida. 45Philip found Nathanael and told him, “We have found the one Moses wrote about in the Law, and about whom the prophets also wrote—Jesus of Nazareth, the son of Joseph.”
-        46“Nazareth! Can anything good come from there?” Nathanael asked.
-        “Come and see,” said Philip.
-        47When Jesus saw Nathanael approaching, he said of him, “Here truly is an Israelite in whom there is no deceit.”
-        48“How do you know me?” Nathanael asked.
-        Jesus answered, “I saw you while you were still under the fig tree before Philip called you.”
-        49Then Nathanael declared, “Rabbi, you are the Son of God; you are the king of Israel.”
-        50Jesus said, “You believe because I told you I saw you under the fig tree. You will see greater things than that.”51He then added, “Very truly I tell you, you will see ‘heaven open, and the angels of God ascending and descending on’ the Son of Man.”</h2>
+    <a class="skip-link" href="#me">Skip to content</a>
+
+    <div class="bg-layer" aria-hidden="true">
+      <img id="background" src="./images/background_med.png" alt="" />
+    </div>
+
+    <section id="hero" data-nav-section data-nav-label="INTRO" data-present="hero">
+      <h1 class="visually-hidden">Ryan (Ryo) Dang</h1>
+      <canvas id="hands"></canvas>
+    </section>
+
+    <canvas id="title" aria-hidden="true"></canvas>
+
+    <main class="page">
+      <section id="me" class="section section--solid" data-nav-section data-nav-label="ME">
+        <div class="section__inner section__inner--wide">
+          <header class="section__header">
+            <p class="section__index">01</p>
+            <h2 class="section__title">Me</h2>
+          </header>
+
+          <div class="about-grid">
+            <aside class="glass-panel about-edu" data-reveal="right" data-present="me-edu" aria-labelledby="about-edu-label">
+          <div
+            class="portrait-carousel"
+            data-portrait-carousel
+            tabindex="0"
+            aria-roledescription="carousel"
+            aria-label="Photos of Ryan (Ryo) Dang"
+          >
+            <div class="portrait-carousel__frame">
+              <div class="portrait-carousel__track">
+                <figure class="portrait-carousel__slide is-active">
+                  <button type="button" class="artwork-open" data-lightbox="./images/ME/HEADSHOT1 2.PNG" aria-label="View portrait of Ryan (Ryo) Dang">
+                    <img
+                      src="./images/ME/HEADSHOT1 2.PNG"
+                      alt="Portrait of Ryan (Ryo) Dang"
+                      width="2000"
+                      height="2666"
+                      decoding="async"
+                    />
+                  </button>
+                </figure>
+                <figure class="portrait-carousel__slide" aria-hidden="true">
+                  <button type="button" class="artwork-open" data-lightbox="./images/ME/IMG_0042.JPG" aria-label="View Ryan outside at night">
+                    <img
+                      src="./images/ME/IMG_0042.JPG"
+                      alt="Ryan (Ryo) Dang outside at night, wearing a plaid suit"
+                      width="2456"
+                      height="1776"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </button>
+                </figure>
+                <figure class="portrait-carousel__slide" aria-hidden="true">
+                  <button type="button" class="artwork-open" data-lightbox="./images/ME/IMG_0597.JPG" aria-label="View Ryan with a budgie">
+                    <img
+                      src="./images/ME/IMG_0597.JPG"
+                      alt="Ryan (Ryo) Dang taking a mirror selfie with a budgie on his shoulder"
+                      width="4284"
+                      height="5712"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </button>
+                </figure>
+              </div>
+            </div>
+            <div class="portrait-carousel__controls">
+              <button type="button" class="portrait-carousel__nav" data-carousel-prev>Previous</button>
+              <p class="portrait-carousel__status" data-carousel-status aria-live="polite">01 / 03</p>
+              <div class="portrait-carousel__dots">
+                <button type="button" data-carousel-dot="0" aria-label="Portrait" aria-current="true"></button>
+                <button type="button" data-carousel-dot="1" aria-label="Night portrait"></button>
+                <button type="button" data-carousel-dot="2" aria-label="Mirror selfie"></button>
+              </div>
+              <button type="button" class="portrait-carousel__nav" data-carousel-next>Next</button>
+            </div>
+          </div>
+              <p class="about-name">Ryan (Ryo) Dang</p>
+              <h3 class="about-kicker" id="about-edu-label">Education</h3>
+              <p class="about-school">University of North Carolina at Chapel Hill</p>
+              <p class="about-meta">Chapel Hill, North Carolina</p>
+              <p class="about-meta">August 2023 – May 2027</p>
+              <ul class="about-degrees">
+                <li>B.A. Computer Science</li>
+                <li>B.A. Communications</li>
+                <li>Minor in Information Systems</li>
+              </ul>
+              <h4 class="about-kicker about-courses-label">Selected coursework</h4>
+              <ul class="about-courses">
+                <li>Data Structures</li>
+                <li>Systems Programming</li>
+                <li>Computer Organization</li>
+                <li>Databases</li>
+                <li>Information Systems Analysis &amp; Design</li>
+                <li>Design and Making for Engineers</li>
+                <li>Algorithms &amp; Society</li>
+                <li>Music Production</li>
+              </ul>
+              <div class="about-resumes">
+                <h3 class="about-kicker">Resumes</h3>
+                <div class="about-resume-links">
+                  <a class="project-link" href="./resumes/SWE_Resume_Fall_2026.pdf" target="_blank" rel="noopener noreferrer">
+                    Software Engineering Resume<span class="visually-hidden"> (PDF)</span>
+                  </a>
+                  <a class="project-link" href="./resumes/PR_Resume_Fall_2026.pdf" target="_blank" rel="noopener noreferrer">
+                    Communications Resume<span class="visually-hidden"> (PDF)</span>
+                  </a>
+                </div>
+              </div>
+            </aside>
+
+            <div class="glass-panel about-experience" data-reveal="up" data-present="me-exp">
+            <h3 class="about-kicker">Experience</h3>
+            <ul class="about-roles">
+              <li class="about-role">
+                <div class="about-role-head">
+                  <h4>Technical Lead Intern</h4>
+                  <p class="about-when">May 2026 – Sep 2026</p>
+                </div>
+                <p class="about-org">The Unpopular View · Remote</p>
+                <p>
+                  Built and shipped the publication’s site — the interface, deployments, and scheduled updates for episodes, essays, and the newsletter — and worked with the editorial team on how it reads together.
+                </p>
+              </li>
+              <li class="about-role">
+                <div class="about-role-head">
+                  <h4>Secretary and Philanthropy Chair</h4>
+                  <p class="about-when">Nov 2025 – Present</p>
+                </div>
+                <p class="about-org">Lambda Chi Alpha · Chapel Hill</p>
+                <p>
+                  Chapter records and communications, apparel and event graphics, and philanthropy that has included an American Red Cross blood drive and fundraising for Breakthrough T1D.
+                </p>
+              </li>
+              <li class="about-role">
+                <div class="about-role-head">
+                  <h4>Shift Leader</h4>
+                  <p class="about-when">June 2021 – Aug 2024</p>
+                </div>
+                <p class="about-org">Gong Cha · Charlotte</p>
+                <p>
+                  Led shifts of five to seven people in a busy shop, from training and station assignments to keeping service steady during a rush.
+                </p>
+              </li>
+            </ul>
+          </div>
+
+          <div class="about-skills" data-reveal="up" data-present="me-skills">
+            <h3 class="about-kicker">Skills</h3>
+            <div class="about-skill-grid">
+              <section class="glass-panel about-skill" aria-labelledby="skill-dev">
+                <h4 id="skill-dev">Development</h4>
+                <p>
+                  <span>Java, Python, JavaScript, TypeScript</span>
+                  <span>C, SQL, HTML, CSS</span>
+                  <span>React, Next.js, Node.js, Express</span>
+                  <span>Spring Boot, PostgreSQL, MySQL</span>
+                  <span>AWS, Docker, GitHub Actions, Vercel, Git</span>
+                </p>
+              </section>
+              <section class="glass-panel about-skill" aria-labelledby="skill-design">
+                <h4 id="skill-design">Design &amp; Media</h4>
+                <p>
+                  <span>Figma, Premiere Pro, After Effects</span>
+                  <span>UI/UX, brand identity, apparel design</span>
+                  <span>Music production</span>
+                </p>
+              </section>
+              <section class="glass-panel about-skill" aria-labelledby="skill-comm">
+                <h4 id="skill-comm">Communications</h4>
+                <p>
+                  <span>Copywriting, presentations</span>
+                  <span>Event promotion, social media</span>
+                  <span>Community outreach, web analytics</span>
+                  <span>Client communication</span>
+                </p>
+              </section>
+            </div>
+          </div>
+        </div>
+        </div>
+      </section>
+
+      <section
+        id="website-works"
+        class="section section--works"
+        data-nav-section
+        data-nav-label="WEBSITE WORKS"
+      >
+        <div class="section__inner section__inner--wide">
+          <header class="works-banner">
+            <p class="section__index" data-reveal="left">01 / Website Works</p>
+            <h2 class="section__title" data-reveal="up">Website Works</h2>
+            <span class="works-rule" data-reveal="line"></span>
+          </header>
+        </div>
+      </section>
+
+      <article
+        id="selvacuts"
+        class="section project project--selva card-deck"
+        data-card-deck
+        data-nav-section
+        data-nav-label="SELVA CUTS"
+      >
+        <div class="card-deck__pin">
+          <div class="card-deck__frame">
+            <div class="card-deck__copy">
+              <aside class="deck-overview" data-present="selva-0">
+                <p class="project-year">2025</p>
+                <p class="eyebrow">Full-Stack Development</p>
+                <h3 class="project-name">Selva Cuts</h3>
+                <p class="project-sub">Full-Stack Booking Platform</p>
+                <p class="project-meta-line">Independent Full-Stack Developer · January</p>
+                <p class="project-lead">
+                  Designed and developed a custom barber booking platform for
+                  David Selva at UNC–Chapel Hill, connecting a branded homepage
+                  with client scheduling, availability management, and
+                  appointment notifications.
+                </p>
+                <ul class="tech-labels">
+                  <li>React</li>
+                  <li>Node.js</li>
+                  <li>Express</li>
+                  <li>MySQL</li>
+                  <li>SendGrid</li>
+                </ul>
+                <ul class="contrib-list">
+                  <li>Client booking flows driven by weekly availability state</li>
+                  <li>Admin tools to view bookings and manage open slots</li>
+                  <li>REST API with appointment updates that consume availability</li>
+                  <li>Automated booking emails via SendGrid</li>
+                  <li>Netlify frontend · Heroku backend</li>
+                </ul>
+                <a
+                  class="project-link"
+                  href="https://selvacuts.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Visit selvacuts.com
+                </a>
+              </aside>
+            </div>
+
+            <div class="card-deck__stage">
+            <div class="card-deck__stack">
+            <article class="deck-card" data-present="selva-0">
+              <figure class="deck-card__media">
+                <video
+                  class="project-video"
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  poster="./images/WebsiteWorks/selvaBooking.png"
+                  data-src="./images/WebsiteWorks/SELVALANDING.mp4"
+                ></video>
+              </figure>
+              <aside class="deck-card__caption">
+                <p class="glass-caption__index">01 / Storefront</p>
+                <h4 class="glass-caption__title">The Digital Storefront</h4>
+                <p class="glass-caption__body">
+                  A branded, responsive homepage connecting services, haircut
+                  galleries, and direct appointment booking.
+                </p>
+              </aside>
+            </article>
+
+            <article class="deck-card" data-present="selva-1">
+              <figure class="deck-card__media">
+                <img
+                  src="./images/WebsiteWorks/selvaBooking.png"
+                  alt="Selva Cuts weekly booking calendar with available and reserved slots"
+                  width="3006"
+                  height="1632"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+              <aside class="deck-card__caption">
+                <p class="glass-caption__index">02 / Scheduling</p>
+                <h4 class="glass-caption__title">Appointment Scheduling</h4>
+                <p class="glass-caption__body">
+                  A weekly booking interface displaying available and reserved
+                  appointment slots directly from the database.
+                </p>
+              </aside>
+            </article>
+
+            <article class="deck-card" data-present="selva-2">
+              <figure class="deck-card__media">
+                <img
+                  src="./images/WebsiteWorks/selvaBooking2.png"
+                  alt="Selva Cuts reservation form for a selected time slot"
+                  width="3006"
+                  height="1632"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+              <aside class="deck-card__caption">
+                <p class="glass-caption__index">03 / Reservation</p>
+                <h4 class="glass-caption__title">Client Reservation</h4>
+                <p class="glass-caption__body">
+                  A booking form collecting the client’s name, Instagram
+                  username, and phone number for a selected appointment slot.
+                </p>
+              </aside>
+            </article>
+
+            <article class="deck-card" data-present="selva-3">
+              <figure class="deck-card__media">
+                <img
+                  src="./images/WebsiteWorks/selvaBooking3.png"
+                  alt="Selva Cuts booking confirmation with Instagram follow-up message"
+                  width="3006"
+                  height="1632"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+              <aside class="deck-card__caption">
+                <p class="glass-caption__index">04 / Confirmation</p>
+                <h4 class="glass-caption__title">Booking Confirmation</h4>
+                <p class="glass-caption__body">
+                  A success state confirming the reserved session and telling
+                  the client they’ll hear back by Instagram or text.
+                </p>
+              </aside>
+            </article>
+            </div>
+              <aside class="deck-specific deck-live-caption" aria-live="polite">
+                <div class="deck-specific__text">
+                <p class="glass-caption__index">01 / Storefront</p>
+                <h4 class="glass-caption__title">The Digital Storefront</h4>
+                <p class="glass-caption__body">
+                  A branded, responsive homepage connecting services, haircut
+                  galleries, and direct appointment booking.
+                </p>
+                </div>
+              </aside>
+            </div>
+            <div class="deck-dots" aria-hidden="true">
+              <span></span><span></span><span></span><span></span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article
+        id="unpopular-view"
+        class="section project project--tuv card-deck"
+        data-card-deck
+        data-nav-section
+        data-nav-label="THE UNPOPULAR VIEW"
+      >
+        <div class="card-deck__pin">
+          <div class="card-deck__frame">
+            <div class="card-deck__copy">
+              <aside class="deck-overview" data-present="tuv-0">
+                <p class="eyebrow">Media Website &amp; Publishing Automation</p>
+                <h3 class="project-name">The Unpopular View</h3>
+                <p class="project-sub">Technical Lead Intern</p>
+                <p class="project-lead">
+                  Led the technical development of a media platform bringing
+                  together podcast episodes, video content, articles, and audience
+                  engagement, with automated workflows to simplify publishing and
+                  newsletter production.
+                </p>
+                <ul class="tech-labels">
+                  <li>Next.js</li>
+                  <li>TypeScript</li>
+                  <li>Tailwind</li>
+                  <li>Vercel</li>
+                  <li>GitHub Actions</li>
+                </ul>
+                <ul class="contrib-list">
+                  <li>Frontend architecture for episodes, writing, and contact</li>
+                  <li>YouTube, podcast, and Substack content integrations</li>
+                  <li>Scheduled publishing automation via GitHub Actions</li>
+                  <li>Buttondown drafts for newsletter production</li>
+                  <li>Cloudflare DNS, SEO, and analytics handoff</li>
+                </ul>
+                <a
+                  class="project-link"
+                  href="https://theunpopularview.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Visit theunpopularview.com
+                </a>
+              </aside>
+            </div>
+
+            <div class="card-deck__stage">
+            <div class="card-deck__stack">
+            <article class="deck-card" data-present="tuv-0">
+              <figure class="deck-card__media">
+                <video
+                  class="project-video"
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  poster="./images/WebsiteWorks/TUVContact.jpg"
+                  data-src="./images/WebsiteWorks/TUVLanding.mp4"
+                ></video>
+              </figure>
+              <aside class="deck-card__caption">
+                <p class="glass-caption__index">01 / Landing</p>
+                <h4 class="glass-caption__title">Editorial Landing</h4>
+                <p class="glass-caption__body">
+                  A media-focused homepage combining visual storytelling with
+                  an organized gateway to the platform’s content.
+                </p>
+              </aside>
+            </article>
+
+            <article class="deck-card" data-present="tuv-1">
+              <figure class="deck-card__media">
+                <video
+                  class="project-video"
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  poster="./images/WebsiteWorks/TUVContact.jpg"
+                  data-src="./images/WebsiteWorks/TUVEpisodes.mp4"
+                ></video>
+              </figure>
+              <aside class="deck-card__caption">
+                <p class="glass-caption__index">02 / Episodes</p>
+                <h4 class="glass-caption__title">Content Discovery</h4>
+                <p class="glass-caption__body">
+                  Podcast and video episodes brought together in a unified
+                  browsing experience, with content synchronized through
+                  automated publishing workflows.
+                </p>
+              </aside>
+            </article>
+
+            <article class="deck-card" data-present="tuv-2">
+              <figure class="deck-card__media">
+                <video
+                  class="project-video"
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  data-src="./images/WebsiteWorks/TUVSubstack.mp4"
+                ></video>
+              </figure>
+              <aside class="deck-card__caption">
+                <p class="glass-caption__index">03 / Substack</p>
+                <h4 class="glass-caption__title">Substack Essays</h4>
+                <p class="glass-caption__body">
+                  Long-form writing from Substack, brought onto the platform
+                  as a focused reading experience.
+                </p>
+              </aside>
+            </article>
+
+            <article class="deck-card" data-present="tuv-3">
+              <figure class="deck-card__media">
+                <img
+                  src="./images/WebsiteWorks/TUVContact.jpg"
+                  alt="The Unpopular View contact page"
+                  width="3024"
+                  height="1714"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+              <aside class="deck-card__caption">
+                <p class="glass-caption__index">04 / Contact</p>
+                <h4 class="glass-caption__title">Contact &amp; Connection</h4>
+                <p class="glass-caption__body">
+                  An integrated contact experience designed to connect
+                  audiences, collaborators, and potential guests with the
+                  platform.
+                </p>
+              </aside>
+            </article>
+            </div>
+              <aside class="deck-specific deck-live-caption" aria-live="polite">
+                <div class="deck-specific__text">
+                <p class="glass-caption__index">01 / Landing</p>
+                <h4 class="glass-caption__title">Editorial Landing</h4>
+                <p class="glass-caption__body">
+                  A media-focused homepage combining visual storytelling with
+                  an organized gateway to the platform’s content.
+                </p>
+                </div>
+              </aside>
+            </div>
+            <div class="deck-dots" aria-hidden="true">
+              <span></span><span></span><span></span><span></span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <section
+        id="design-works"
+        class="section section--works"
+        data-nav-section
+        data-nav-label="DESIGN WORKS"
+      >
+        <div class="section__inner section__inner--wide">
+          <header class="works-banner">
+            <p class="section__index" data-reveal="left">02 / Design Works</p>
+            <h2 class="section__title" data-reveal="up">Design Works</h2>
+            <span class="works-rule" data-reveal="line"></span>
+            <p class="works-intro" data-reveal="up">
+              An ongoing collection of apparel graphics and promotional designs
+              created for fraternity events and initiatives. These projects gave
+              me the freedom to explore visual identities, develop a more
+              consistent design process, and refine my own creative style.
+            </p>
+          </header>
+        </div>
+      </section>
+
+      <div class="shirt-board">
+      <article
+        id="spring"
+        class="section design-group"
+        data-present="spring-0"
+        data-nav-section
+        data-nav-label="SPRING COLLECTION"
+      >
+        <div class="section__inner section__inner--wide">
+          <header class="design-copy">
+            <p class="eyebrow" data-reveal="left">Apparel graphics</p>
+            <h3 class="project-name" data-reveal="up">Spring Collection</h3>
+            <p class="project-lead" data-reveal="up">
+              Explorations in emblem design and apparel graphics, experimenting
+              with composition, typography, and visual identity for fraternity
+              merchandise.
+            </p>
+          </header>
+
+          <div class="spread spread--spring">
+            <figure class="artwork-mat spread__front" data-reveal="up" data-present="spring-0" data-exhibit-kicker="01 / Shirt front" data-exhibit-title="Athens 2026">
+              <button type="button" class="artwork-open" data-lightbox="./images/DesignWorks/SpringFront.png" aria-label="View Spring shirt front">
+                <img
+                  src="./images/DesignWorks/SpringFront.png"
+                  alt="Lambda Chi Alpha spring shirt front, Athens 2026"
+                  width="1200"
+                  height="1500"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </button>
+            </figure>
+            <figure class="artwork-mat spread__emblem" data-reveal="right" data-present="spring-1" data-exhibit-kicker="02 / Emblem" data-exhibit-title="Ornamental emblem">
+              <button type="button" class="artwork-open" data-lightbox="./images/DesignWorks/SpringEmblem2.0.png" aria-label="View spring emblem">
+                <img
+                  src="./images/DesignWorks/SpringEmblem2.0.png"
+                  alt="Ornamental Lambda Chi Alpha emblem"
+                  width="930"
+                  height="1135"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </button>
+            </figure>
+            <figure class="artwork-mat spread__mark" data-reveal="left" data-present="spring-2" data-exhibit-kicker="03 / Monogram" data-exhibit-title="Circular monogram">
+              <button type="button" class="artwork-open" data-lightbox="./images/DesignWorks/SpringEmblem1.0.png" aria-label="View circular spring emblem">
+                <img
+                  src="./images/DesignWorks/SpringEmblem1.0.png"
+                  alt="Circular Lambda Chi Alpha monogram"
+                  width="1022"
+                  height="1016"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </button>
+            </figure>
+          </div>
+        </div>
+      </article>
+
+      <article
+        id="fall"
+        class="section design-group"
+        data-present="fall-0"
+        data-nav-section
+        data-nav-label="FALL COLLECTION"
+      >
+        <div class="section__inner section__inner--wide">
+          <header class="design-copy design-copy--right">
+            <p class="eyebrow" data-reveal="right">Apparel graphics</p>
+            <h3 class="project-name" data-reveal="up">Fall Collection</h3>
+            <p class="project-lead" data-reveal="up">
+              Shirt graphics for a High Country semi-formal: a horse
+              illustration for the back, and a Gamma Nu monogram for the front.
+            </p>
+          </header>
+
+          <div class="spread spread--fall">
+            <figure class="spread__back" data-reveal="left" data-present="fall-0" data-exhibit-kicker="01 / Back print" data-exhibit-title="Equestrian artwork">
+              <div class="artwork-mat">
+                <button type="button" class="artwork-open" data-lightbox="./images/DesignWorks/horse3.0.png" aria-label="View fall shirt back">
+                  <img
+                    src="./images/DesignWorks/horse3.0.png"
+                    alt="Fall shirt back for Lambda Chi Alpha’s High Country Semi-Formal in West Jefferson, with a rearing horse"
+                    width="3435"
+                    height="4539"
+                    loading="lazy"
+                    decoding="async"
+                    data-scroll-shift="-18"
+                  />
+                </button>
+              </div>
+              <figcaption>Back print</figcaption>
+            </figure>
+            <figure class="spread__front-print" data-reveal="right" data-present="fall-1" data-exhibit-kicker="02 / Front print" data-exhibit-title="Gamma Nu monogram">
+              <div class="artwork-mat">
+                <button type="button" class="artwork-open" data-lightbox="./images/DesignWorks/FALLFRONT3.2.png" aria-label="View fall shirt front">
+                  <img
+                    src="./images/DesignWorks/FALLFRONT3.2.png"
+                    alt="Fall shirt front: Lambda Chi Alpha Gamma Nu 2026 monogram and filigree on sage"
+                    width="687"
+                    height="720"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </button>
+              </div>
+              <figcaption>Front print</figcaption>
+            </figure>
+          </div>
+        </div>
+      </article>
       </div>
-    <img id="wing" src="images/wings.png">
-    <img id="background" src="images/background_med.png">
-    <script src="main.js" type="module" ></script>
+
+      <article
+        id="thrift"
+        class="section design-group"
+        data-present="thrift-0"
+        data-nav-section
+        data-nav-label="THRIFT MARKET"
+      >
+        <div class="section__inner section__inner--wide">
+          <header class="design-copy">
+            <p class="eyebrow" data-reveal="left">Event promotion</p>
+            <h3 class="project-name" data-reveal="up">Thrift Market</h3>
+            <p class="project-lead" data-reveal="up">
+              Promotional artwork for a fraternity thrift event, exploring
+              typography, composition, and visual communication in an
+              event-focused format.
+            </p>
+          </header>
+
+          <div class="spread spread--thrift">
+            <figure class="artwork-mat poster poster--lead" data-reveal="scale" data-present="thrift-0" data-exhibit-kicker="01 / Poster" data-exhibit-title="Thrift Market">
+              <button type="button" class="artwork-open" data-lightbox="./images/DesignWorks/ThriftMarket2.0.png" aria-label="View Thrift Market poster">
+                <img
+                  src="./images/DesignWorks/ThriftMarket2.0.png"
+                  alt="Thrift Market poster, October 24 at 229 East Franklin Street"
+                  width="2000"
+                  height="2491"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </button>
+            </figure>
+            <figure class="artwork-mat poster poster--offset" data-reveal="right" data-present="thrift-1" data-exhibit-kicker="02 / Alternate" data-exhibit-title="Second poster">
+              <button type="button" class="artwork-open" data-lightbox="./images/DesignWorks/ThriftMarket1.0.jpg" aria-label="View alternate Thrift Market poster">
+                <img
+                  src="./images/DesignWorks/ThriftMarket1.0.jpg"
+                  alt="Alternate Thrift Market promotional poster"
+                  width="1396"
+                  height="1676"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </button>
+            </figure>
+          </div>
+        </div>
+      </article>
+
+      <section id="contact" class="section section--contact" data-nav-section data-nav-label="CONTACT" data-present="contact">
+        <div class="section__inner">
+          <header class="section__header">
+            <p class="section__index">03</p>
+            <h2 class="section__title">Contact</h2>
+          </header>
+
+          <div class="glass-panel contact-card">
+            <p class="about-name">Ryan (Ryo) Dang</p>
+            <p class="contact-lead">For engineering, design, and communications work.</p>
+            <p class="contact-links">
+              <a href="mailto:rdang.dev@gmail.com">rdang.dev@gmail.com</a>
+              <a href="https://www.linkedin.com/in/ryan-dang-557293280/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            </p>
+          </div>
+
+          <figure class="wings-wrap">
+            <span class="wing-slot wing-slot--left">
+              <img src="./images/wings.png" alt="" />
+            </span>
+            <span class="wing-slot wing-slot--right">
+              <img src="./images/wings.png" alt="" />
+            </span>
+          </figure>
+        </div>
+      </section>
+    </main>
+
+    <nav class="side-nav" aria-label="Page">
+      <button
+        class="side-nav__toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="side-nav-panel"
+      >
+        <span class="side-nav__current" id="nav-current">INTRO</span>
+        <span class="side-nav__icon" aria-hidden="true">☰</span>
+        <span class="visually-hidden">Open menu</span>
+      </button>
+      <div id="side-nav-panel" class="side-nav__panel" hidden>
+        <a href="#me">Me</a>
+        <a href="#website-works">Website Works</a>
+        <a class="side-nav__sub" href="#selvacuts">Selva Cuts</a>
+        <a class="side-nav__sub" href="#unpopular-view">The Unpopular View</a>
+        <a href="#design-works">Design Works</a>
+        <a class="side-nav__sub" href="#spring">Spring Collection</a>
+        <a class="side-nav__sub" href="#fall">Fall Collection</a>
+        <a class="side-nav__sub" href="#thrift">Thrift Market</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+
+    <dialog class="lightbox" id="lightbox" aria-label="Artwork viewer">
+      <button type="button" class="lightbox__close" aria-label="Close">Close</button>
+      <img alt="" />
+    </dialog>
+
+    <div class="presentation" id="presentation" hidden>
+      <header class="presentation__bar">
+        <nav class="presentation__links" aria-label="Presentation">
+          <button type="button" data-present-section="hero">Hero</button>
+          <button type="button" data-present-section="me">Me</button>
+          <button type="button" data-present-section="website">Website Works</button>
+          <button type="button" data-present-section="design">Design Works</button>
+          <button type="button" data-present-section="contact">Contact</button>
+        </nav>
+        <button type="button" class="presentation__exit" data-present-exit>Exit presentation ×</button>
+      </header>
+      <div class="presentation__stage" tabindex="-1"></div>
+      <footer class="presentation__foot">
+        <button type="button" class="presentation__arrow" data-present-prev>Previous</button>
+        <div class="presentation__dots" data-present-dots></div>
+        <p class="presentation__progress" data-present-progress></p>
+        <button type="button" class="presentation__arrow" data-present-next>Next</button>
+      </footer>
+    </div>
+
+    <script src="./main.js" type="module"></script>
   </body>
 </html>

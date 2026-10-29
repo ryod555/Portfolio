@@ -1,0 +1,494 @@
+[data-present] {
+  cursor: pointer;
+}
+
+[data-present]:not(.deck-card) {
+  position: relative;
+}
+
+.present-cue {
+  position: absolute;
+  right: 0.7rem;
+  bottom: 0.65rem;
+  z-index: 3;
+  padding: 0.28rem 0.45rem 0.28rem 1.4rem;
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(244, 248, 251, 0.92);
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, transparent, rgba(6, 12, 22, 0.55) 28%, rgba(6, 12, 22, 0.72));
+  border-radius: 999px;
+  opacity: 0.9;
+  transition: opacity 0.28s ease, transform 0.28s ease;
+}
+
+#hero > .present-cue {
+  position: absolute;
+  top: calc(100vh - 3.4rem);
+  right: 1.4rem;
+  bottom: auto;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .present-cue {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+
+  [data-present]:hover .present-cue,
+  [data-present]:focus-within .present-cue {
+    opacity: 1;
+    transform: none;
+  }
+
+  [data-present]:hover {
+    outline: 1px solid rgba(232, 241, 248, 0.28);
+    outline-offset: 0;
+  }
+
+  .deck-card:hover .deck-card__media img,
+  .deck-card:hover .deck-card__media video,
+  figure[data-present]:hover img,
+  .about-edu:hover .portrait-carousel__slide img {
+    filter: brightness(1.08) contrast(1.04);
+    transform: scale(1.015);
+    transition: transform 0.3s ease, filter 0.3s ease;
+  }
+}
+
+.deck-card__media img,
+.deck-card__media video,
+figure[data-present] img {
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+figure[data-present],
+.spread__back,
+.spread__front-print {
+  position: relative;
+}
+
+.artwork-zoom {
+  position: absolute;
+  left: 0.55rem;
+  bottom: 0.55rem;
+  z-index: 4;
+  appearance: none;
+  border: 1px solid rgba(232, 241, 248, 0.35);
+  background: rgba(8, 16, 28, 0.62);
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.55rem;
+  border-radius: 999px;
+  cursor: zoom-in;
+}
+
+body.is-presenting {
+  overflow: hidden;
+}
+
+body.is-presenting #background {
+  filter: blur(10px) saturate(0.72) brightness(0.62);
+  transition: filter 0.45s ease;
+}
+
+body.is-presenting::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at center, rgba(5, 10, 18, 0.18), rgba(5, 10, 18, 0.72)),
+    rgba(5, 10, 18, 0.28);
+}
+
+body.is-presenting .side-nav,
+body.is-presenting .present-cue {
+  visibility: hidden;
+}
+
+body.is-presenting.is-present-hero #hands {
+  z-index: 31;
+}
+
+body.is-presenting.is-present-hero #title {
+  z-index: 32;
+}
+
+.presentation {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  background: transparent;
+  color: var(--ink);
+}
+
+.presentation[hidden] {
+  display: none;
+}
+
+.presentation__bar,
+.presentation__foot {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.7rem 1.1rem;
+  background: rgba(8, 16, 28, 0.58);
+  border-color: rgba(220, 236, 248, 0.16);
+  border-style: solid;
+  backdrop-filter: blur(16px) saturate(1.2);
+  -webkit-backdrop-filter: blur(16px) saturate(1.2);
+}
+
+.presentation__bar {
+  justify-content: space-between;
+  border-width: 0 0 1px;
+  padding-left: 1.35rem;
+  padding-right: 1.15rem;
+}
+
+.presentation__foot {
+  justify-content: space-between;
+  border-width: 1px 0 0;
+}
+
+.presentation__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.9rem;
+}
+
+.presentation__links button,
+.presentation__exit,
+.presentation__arrow,
+.present-portrait__controls button {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: rgba(232, 241, 248, 0.72);
+  font: inherit;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.68rem;
+  cursor: pointer;
+  padding: 0.35rem 0.15rem;
+}
+
+.presentation__links button.is-active {
+  color: #fff;
+  box-shadow: inset 0 -1px 0 #fff;
+}
+
+.presentation__exit {
+  flex: 0 0 auto;
+  border: 1px solid rgba(232, 241, 248, 0.28);
+  border-radius: 999px;
+  padding: 0.4rem 0.7rem;
+}
+
+.presentation__links button:hover,
+.presentation__exit:hover,
+.presentation__arrow:hover,
+.present-portrait__controls button:hover {
+  color: #fff;
+}
+
+.presentation__arrow:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.presentation__stage {
+  min-height: 0;
+  position: relative;
+}
+
+.presentation__stage.is-swap {
+  animation: present-in 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.presentation__stage.is-swap.is-back {
+  animation-name: present-in-back;
+}
+
+.presentation__progress {
+  margin: 0;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(232, 241, 248, 0.8);
+}
+
+.presentation__progress::after {
+  content: " · " attr(data-overall);
+  color: rgba(232, 241, 248, 0.45);
+}
+
+.presentation__dots {
+  display: flex;
+  gap: 0.45rem;
+  min-height: 0.7rem;
+}
+
+.presentation__dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(232, 241, 248, 0.32);
+  cursor: pointer;
+}
+
+.presentation__dot[aria-current="true"] {
+  background: #f4f8fb;
+  box-shadow: 0 0 0 4px rgba(244, 248, 251, 0.16);
+}
+
+.present-split {
+  height: 100%;
+  display: grid;
+  grid-template-columns: minmax(260px, 0.78fr) minmax(0, 1.35fr);
+  gap: 1.15rem;
+  padding: 1rem 1.25rem 1rem 1.4rem;
+  box-sizing: border-box;
+}
+
+.present-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 0.9rem;
+  min-height: 0;
+  min-width: 0;
+  overflow: auto;
+}
+
+.present-panel {
+  background: rgba(9, 24, 42, 0.46);
+  border: 1px solid var(--glass-border);
+  border-radius: 14px;
+  box-shadow: inset 0 1px 0 var(--glass-highlight);
+  backdrop-filter: blur(16px) saturate(1.2);
+  -webkit-backdrop-filter: blur(16px) saturate(1.2);
+  padding: 1rem 1.05rem 1.05rem;
+  overflow: auto;
+}
+
+.present-overview {
+  flex: 0 0 auto;
+  animation: present-fade 0.45s ease both;
+}
+
+.present-panel [data-reveal] {
+  opacity: 1;
+  transform: none;
+}
+
+.present-panel.design-copy,
+.present-panel.design-copy--right {
+  max-width: none;
+  margin: 0;
+  text-align: left;
+}
+
+.present-panel.design-copy--right .project-lead {
+  margin-left: 0;
+}
+
+.present-overview.is-steady {
+  animation: none;
+}
+
+.present-feature {
+  flex: 0 0 9.75rem;
+  height: 9.75rem;
+  margin-top: auto;
+  animation: present-fade 0.45s ease 0.06s both;
+}
+
+html.motion .present-feature .deck-card__caption {
+  position: static;
+  width: auto;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+  clip: unset;
+  white-space: normal;
+  border: 0;
+}
+
+.present-media {
+  margin: 0;
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.4rem 0.35rem 0.4rem 0;
+  animation: present-fade 0.45s ease both;
+}
+
+.present-media img,
+.present-media video {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  cursor: zoom-in;
+  border-radius: 10px;
+}
+
+.present-hero {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 1.5rem 8vh;
+  text-align: center;
+  pointer-events: none;
+}
+
+.present-hero__name {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: clamp(1.4rem, 2.4vw, 2rem);
+}
+
+.present-hero__hint {
+  margin: 0.4rem 0 0;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  color: rgba(232, 241, 248, 0.72);
+}
+
+.present-split--me {
+  grid-template-columns: minmax(200px, 0.7fr) minmax(0, 1.2fr);
+  align-items: center;
+}
+
+.present-portrait {
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.present-portrait img {
+  max-height: min(62vh, 680px);
+  cursor: zoom-in;
+  background: #f3eee4;
+}
+
+.present-portrait__controls {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.present-contact {
+  height: 100%;
+  display: grid;
+  place-items: center;
+  position: relative;
+  padding: 1.5rem;
+}
+
+.present-contact .present-panel {
+  position: relative;
+  z-index: 1;
+  width: min(36rem, 100%);
+  max-height: 70%;
+}
+
+.present-wings {
+  --wing-h: clamp(220px, 62vh, 720px);
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.present-wings .wing-slot {
+  height: var(--wing-h);
+  width: calc(var(--wing-h) * 0.48);
+  max-width: 46vw;
+}
+
+@keyframes present-in {
+  from { opacity: 0; transform: translateX(26px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes present-in-back {
+  from { opacity: 0; transform: translateX(-26px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes present-fade {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (max-width: 800px) {
+  .presentation__links {
+    gap: 0.2rem 0.55rem;
+  }
+
+  .presentation__links button,
+  .presentation__exit,
+  .presentation__arrow {
+    font-size: 0.58rem;
+    letter-spacing: 0.08em;
+  }
+
+  .present-split,
+  .present-split--me {
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(34vh, 42vh) auto;
+    overflow: auto;
+    align-items: stretch;
+  }
+
+  .present-copy {
+    justify-content: flex-start;
+  }
+
+  .present-feature {
+    flex-basis: auto;
+    height: auto;
+    min-height: 7.5rem;
+  }
+
+  .present-media {
+    padding: 0;
+    order: -1;
+  }
+
+  .presentation__progress::after {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .presentation__stage.is-swap,
+  .present-overview,
+  .present-feature,
+  .present-media,
+  .present-cue,
+  .deck-card__media img,
+  .deck-card__media video,
+  figure[data-present] img,
+  body.is-presenting #background {
+    animation: none;
+    transition: none;
+  }
+}

@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Unofficial transcript (grades, student ID, birthdate). Never publish.
+_private/
+images/Transcript.pdf
